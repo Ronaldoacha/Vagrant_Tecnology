@@ -1,0 +1,20 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+    # Box settings
+    config.vm.box = "eurolinux-vagrant/centos-stream-9"
+    config.vm.hostname = "centos-stream9"
+
+    # Network settings
+    config.vm.network "public_network", 
+        ip: "192.168.56.17",
+        bridge: "eth0"
+
+    # Provider settings
+    config.vm.provider "virtualbox" do |vb|
+        vb.memory = 8192  # 8GB RAM
+        vb.cpus = 4       # 4 CPUs
+        vb.name = "centos-stream9-vm"
+    end
+end
